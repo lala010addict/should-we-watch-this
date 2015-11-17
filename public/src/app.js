@@ -13,5 +13,5 @@ app.controller('appCtrl', function($scope, appFactory) {
 // helper function / factory for AJAX
 app.factory('appFactory', function($http) {
   // needs $http for AJAX functionality
-
+  return {};
 });
