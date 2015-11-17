@@ -2,6 +2,10 @@
 
 .DS_Store
 
+# Floobits
+.floo
+.flooignore
+
 # Logs
 logs
 *.log
