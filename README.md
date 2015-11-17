@@ -1,12 +1,12 @@
-# Project Name
+# Project Name - Should I Watch This?
 
-> Pithy project description
+> An app that anyone can use instantly, to chart IMDB user ratings for their favorite shows, by episode.
 
-## Team
+## Team - Samurai
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Aaron Phillips
+  - __Scrum Master__: Ryan Price (Tom Cruise)
+  - __Development Team Members__: Casey Woolley, Eric Hollenberry
 
 ## Table of Contents
 
