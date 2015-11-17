@@ -7,11 +7,11 @@ app.controller('appCtrl', function($scope, appFactory) {
   // * d3 object / data set (when data is changed page is update)
   // * search function
     // - make call to AJAX factory
-
+  $scope.test = 'testing';
 });
 
 // helper function / factory for AJAX
 app.factory('appFactory', function($http) {
   // needs $http for AJAX functionality
-  
+
 });

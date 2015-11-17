@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="app">
   <head>
     <title>Samurai</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
@@ -8,9 +8,12 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="public/src/app.js"></script>
   </head>
-  <body>
-
+  <body ng-view="appCtrl">
+    <pre>
+      {{ test }}
+    </pre>
     <!-- d3 graph section -->
     <!-- search results info -->
 
