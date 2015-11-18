@@ -1,0 +1,49 @@
+body {
+  background-color: #111;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+div {
+  margin: 20px auto 0;
+  color: #aaa;
+  font-weight: 100;
+}
+svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.xaxis path,
+.xaxis line,
+.yaxis path,
+.yaxis line {
+    stroke: #aaa;
+    fill: none;
+    shape-rendering: crispEdges;
+}
+
+.xaxis text,
+.yaxis text {
+    font-family: sans-serif;
+    font-size: 11px;
+    fill: #aaa;
+}
+
+.datapoint {
+    cursor: pointer;
+    stroke: #111;
+    fill: rgba(47, 255, 77, .75);
+    stroke-width: 7;
+}
+
+.lineChart {
+    fill: none;
+    stroke-width: 3;
+    stroke: rgba(100,100,100, 0.4);
+}
