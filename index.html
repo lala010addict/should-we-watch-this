@@ -4,18 +4,15 @@
     <title>Samurai</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
     integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
-    crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="public/src/app.js"></script>
+    crossorigin="anonymous"> 
+     <link rel="stylesheet" type="text/css" href="public/style.css">
   </head>
-  <body >
+  <body>
     <!-- d3 graph section -->
-    <section class="graph"></section>
-
+    <section class="graph">
+      <div id="graph"></div>
+    </section>
   <div class="container" ng-app="app" ng-controller="appCtrl">
-
     <!-- search results info -->
     <section class="showInfo"></section>
     <pre>{{ results }}</pre>
@@ -28,5 +25,9 @@
       <input type="submit" name="name" value="Go">
     </form>
   </div>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="public/src/graph.js"></script>
   </body>
 </html>

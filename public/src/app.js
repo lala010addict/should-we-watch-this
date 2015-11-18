@@ -1,13 +1,12 @@
 // instantiate an angular app
 var app = angular.module('app', []);
   // declare one controller for the app
-app.controller('appCtrl', function($scope, $http) {
+app.controller('appCtrl', function($scope, appFactory) {
   // * scope will have the query string as a variable
-  $scope.query = '';
   // * show meta data as an object (reponse from AJAX call?)
   $scope.results = [];
-  // * d3 object / data set (when data is changed page is update)
 
+  // * d3 object / data set (when data is changed page is update)
   // * search function
   $scope.submit = function() {
     // - make call to AJAX factory
