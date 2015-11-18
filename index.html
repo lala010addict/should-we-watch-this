@@ -10,22 +10,23 @@
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="public/src/app.js"></script>
   </head>
-  <body ng-app="app" ng-controller="appCtrl">
-
+  <body >
     <!-- d3 graph section -->
     <section class="graph"></section>
 
+  <div class="container" ng-app="app" ng-controller="appCtrl">
+
     <!-- search results info -->
     <section class="showInfo"></section>
-
+    <pre>{{ results }}</pre>
     <!-- verdict -->
     <section class="verdict"></section>
 
     <!-- search bar -->
-    <form class="search" action="index.html" method="post">
-      <input type="text" name="name" placeholder="Should I watch this?">
-      <input type="button" name="name" value="Go">
+    <form class="search" ng-submit="submit()">
+      <input type="text" name="name" ng-model="query" placeholder="Should I watch this?">
+      <input type="submit" name="name" value="Go">
     </form>
-
+  </div>
   </body>
 </html>
