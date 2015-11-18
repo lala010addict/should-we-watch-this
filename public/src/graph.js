@@ -11,7 +11,7 @@ var data_url = {"Title":"Game of Thrones","Season":"1","Episodes":[{"Title":"Win
 var episodedataset = [];
 var ratingdataset = [];
 var infoset = [];
-
+var title = [];
 
 
 //This iterates over the data_url to input the Episode Rating Data as points into the graph.
@@ -26,7 +26,11 @@ var each = function(input, callback){
     }
   }
 };
-
+each(data_url, function(element, key){
+  if(key === "Title"){
+    title.push(data_url[key]);
+  }
+});
 //Function for filling up the info dataset
 each(data_url, function(element, key){
   if(key === "Episodes"){
@@ -191,6 +195,16 @@ points.attr('cy', 0)
                 }
         })
         .style('opacity', 1);
+
+
+//graph title
+d3.select('#graph svg')
+  .append("text")
+  .attr("x", w/2)             
+  .attr("y", 14)
+  .attr("text-anchor", "middle") 
+  .style("fill", "#2FFF4D")
+  .text(title[0]);
 
 //Text Style and Location On Hover
 
