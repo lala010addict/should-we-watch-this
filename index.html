@@ -17,14 +17,14 @@
 
     <!-- search results info -->
     <section class="showInfo"></section>
-
+    <pre>{{ results }}</pre>
     <!-- verdict -->
     <section class="verdict"></section>
 
     <!-- search bar -->
-    <form class="search" action="index.html" method="post">
-      <input type="text" name="name" placeholder="Should I watch this?">
-      <input type="button" name="name" value="Go">
+    <form class="search" ng-submit="submit()">
+      <input type="text" name="name" ng-model="query" placeholder="Should I watch this?">
+      <input type="submit" name="name" value="Go">
     </form>
 
   </body>
