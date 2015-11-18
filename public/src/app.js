@@ -1,15 +1,17 @@
 // instantiate an angular app
 var app = angular.module('app', []);
   // declare one controller for the app
-app.controller('appCtrl', function($scope, appFactory) {
+app.controller('appCtrl', function($scope, $http) {
   // * scope will have the query string as a variable
+  $scope.query = '';
   // * show meta data as an object (reponse from AJAX call?)
   $scope.results = [];
-
   // * d3 object / data set (when data is changed page is update)
+
   // * search function
   $scope.submit = function() {
     // - make call to AJAX factory
+    $scope.results = [];
     var season = 1;
     var seasonExists = true;
     var getAllSeasons = function(seasonNumber) {
@@ -32,3 +34,15 @@ app.controller('appCtrl', function($scope, appFactory) {
     getAllSeasons(season);
   };
 });
+
+app.directive('graph', function($parse, $window){
+   return{
+      restrict:'EA',
+      template:"<svg width='850' height='200'></svg>",
+       link: function(scope, elem, attrs){
+       		scope.$watchCollection('results', function(newVal, oldVal){
+       			console.log('directive:', newVal);
+           });
+       	}
+       };
+     });
