@@ -8,12 +8,38 @@ var h = 400;
 var padding = 25;
 //We don't know where this will be yet, needs to change.
 var data_url = {"Title":"Game of Thrones","Season":"1","Episodes":[{"Title":"Winter Is Coming","Released":"2011-04-17","Episode":"1","imdbRating":"8.1","imdbID":"tt1480055"},{"Title":"The Kingsroad","Released":"2011-04-24","Episode":"2","imdbRating":"7.8","imdbID":"tt1668746"},{"Title":"Lord Snow","Released":"2011-05-01","Episode":"3","imdbRating":"7.6","imdbID":"tt1829962"},{"Title":"Cripples, Bastards, and Broken Things","Released":"2011-05-08","Episode":"4","imdbRating":"7.7","imdbID":"tt1829963"},{"Title":"The Wolf and the Lion","Released":"2011-05-15","Episode":"5","imdbRating":"8.0","imdbID":"tt1829964"},{"Title":"A Golden Crown","Released":"2011-05-22","Episode":"6","imdbRating":"8.1","imdbID":"tt1837862"},{"Title":"You Win or You Die","Released":"2011-05-29","Episode":"7","imdbRating":"8.2","imdbID":"tt1837863"},{"Title":"The Pointy End","Released":"2011-06-05","Episode":"8","imdbRating":"7.9","imdbID":"tt1837864"},{"Title":"Baelor","Released":"2011-06-12","Episode":"9","imdbRating":"8.6","imdbID":"tt1851398"},{"Title":"Fire and Blood","Released":"2011-06-19","Episode":"10","imdbRating":"8.4","imdbID":"tt1851397"}],"Response":"True"};
+var epId = 1;
 var episodedataset = [];
 var ratingdataset = [];
 var infoset = [];
 var title = [];
 
+app.directive('graph', function($parse, $window){
+   return{
+      restrict:'EA',
+      template:'<section class="graph"><div id="graph"></div></section>',
+       link: function(scope, elem, attrs){
+            scope.$watchCollection('results', function(newVal, oldVal){
+                console.log('directive:', newVal);
+                data_url = newVal || {};
+                drawGraph();
+           });
+        }
+       };
+     });
 
+
+var drawGraph = function() {
+
+if (title[0] && data_url['Title'] !== title[0]){
+    epId = 1;
+    episodedataset = [];
+    ratingdataset = [];
+    infoset = [];
+    title = [];
+}
+
+    console.log('drawGraph');
 //This iterates over the data_url to input the Episode Rating Data as points into the graph.
 var each = function(input, callback){
   if(input.constructor === Object){
@@ -34,9 +60,9 @@ each(data_url, function(element, key){
 //Function for filling up the info dataset
 each(data_url, function(element, key){
   if(key === "Episodes"){
-    var epsiodes = data_url["Episodes"];
-    each(epsiodes, function(element, key){
-    var set = epsiodes[key];
+    var episodes = data_url["Episodes"];
+    each(episodes, function(element, key){
+    var set = episodes[key];
     var temp = [];
     each(set,function(element, key){
       if(temp.length === 2){
@@ -67,7 +93,9 @@ each(data_url, function(element, key){
       }
       if(key === "Episode"){
         var a = parseInt(set[key]);
-        temp.push(a);
+        //temp.push(a);
+        temp.push(epId);
+        epId++;
       }
       if(key === "imdbRating"){
         var b = parseFloat(set[key]);
@@ -88,6 +116,10 @@ var tip = d3.tip()
   })
 
 //Define Graph Space, Initialize d3 (This sets how big the div is)
+d3.selectAll('svg')
+        .remove();
+$('#graph').empty();
+
 var svg = d3.select('#graph')
         .append('svg')
         .attr('width', w)
@@ -211,6 +243,7 @@ d3.select('#graph svg')
 
 svg.selectAll('circle').data(infoset).on('mouseover', tip.show).on('mouseout', tip.hide)
 
+};
 
 
 
