@@ -14,11 +14,13 @@ app.controller('appCtrl', function($scope, $http) {
     $scope.results = {};
     var season = 1;
     var seasonExists = true;
+    var queryString = $scope.query;
+    $scope.query = '';
     var getAllSeasons = function(seasonNumber) {
     	$http({
     		//need to handle url spaces
     		method: 'GET',
-        params: {t: $scope.query, type: 'series', season: seasonNumber},
+        params: {t: queryString, type: 'series', season: seasonNumber},
     		url: 'http://www.omdbapi.com/?',
     	}).then(function(res) {
         console.log(res);
@@ -28,9 +30,11 @@ app.controller('appCtrl', function($scope, $http) {
         }
     		//run d3 function with data
     	}, function(err) {
+
         console.log(err);
       });
     };
+
     getAllSeasons(season);
   };
 });
