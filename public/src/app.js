@@ -11,7 +11,7 @@ app.controller('appCtrl', function($scope, $http) {
   // * search function
   $scope.submit = function() {
     // - make call to AJAX factory
-    $scope.results = [];
+    $scope.results = {};
     var season = 1;
     var seasonExists = true;
     var getAllSeasons = function(seasonNumber) {
@@ -23,7 +23,7 @@ app.controller('appCtrl', function($scope, $http) {
     	}).then(function(res) {
         console.log(res);
         if (res.data.Response === "True") {
-          $scope.results.push(res.data);
+          $scope.results = res.data;
           getAllSeasons(seasonNumber + 1);
         }
     		//run d3 function with data
@@ -35,14 +35,3 @@ app.controller('appCtrl', function($scope, $http) {
   };
 });
 
-app.directive('graph', function($parse, $window){
-   return{
-      restrict:'EA',
-      template:"<svg width='850' height='200'></svg>",
-       link: function(scope, elem, attrs){
-       		scope.$watchCollection('results', function(newVal, oldVal){
-       			console.log('directive:', newVal);
-           });
-       	}
-       };
-     });
