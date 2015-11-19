@@ -7,39 +7,12 @@ var w = 800;
 var h = 400;
 var padding = 25;
 //We don't know where this will be yet, needs to change.
-var data_url = {"Title":"Game of Thrones","Season":"1","Episodes":[{"Title":"Winter Is Coming","Released":"2011-04-17","Episode":"1","imdbRating":"8.1","imdbID":"tt1480055"},{"Title":"The Kingsroad","Released":"2011-04-24","Episode":"2","imdbRating":"7.8","imdbID":"tt1668746"},{"Title":"Lord Snow","Released":"2011-05-01","Episode":"3","imdbRating":"7.6","imdbID":"tt1829962"},{"Title":"Cripples, Bastards, and Broken Things","Released":"2011-05-08","Episode":"4","imdbRating":"7.7","imdbID":"tt1829963"},{"Title":"The Wolf and the Lion","Released":"2011-05-15","Episode":"5","imdbRating":"8.0","imdbID":"tt1829964"},{"Title":"A Golden Crown","Released":"2011-05-22","Episode":"6","imdbRating":"8.1","imdbID":"tt1837862"},{"Title":"You Win or You Die","Released":"2011-05-29","Episode":"7","imdbRating":"8.2","imdbID":"tt1837863"},{"Title":"The Pointy End","Released":"2011-06-05","Episode":"8","imdbRating":"7.9","imdbID":"tt1837864"},{"Title":"Baelor","Released":"2011-06-12","Episode":"9","imdbRating":"8.6","imdbID":"tt1851398"},{"Title":"Fire and Blood","Released":"2011-06-19","Episode":"10","imdbRating":"8.4","imdbID":"tt1851397"}],"Response":"True"};
-var epId = 1;
+var data_url = [{"Title":"Game of Thrones","Season":"1","Episodes":[{"Title":"Winter Is Coming","Released":"2011-04-17","Episode":"1","imdbRating":"8.1","imdbID":"tt1480055"},{"Title":"The Kingsroad","Released":"2011-04-24","Episode":"2","imdbRating":"7.8","imdbID":"tt1668746"},{"Title":"Lord Snow","Released":"2011-05-01","Episode":"3","imdbRating":"7.6","imdbID":"tt1829962"},{"Title":"Cripples, Bastards, and Broken Things","Released":"2011-05-08","Episode":"4","imdbRating":"7.7","imdbID":"tt1829963"},{"Title":"The Wolf and the Lion","Released":"2011-05-15","Episode":"5","imdbRating":"8.0","imdbID":"tt1829964"},{"Title":"A Golden Crown","Released":"2011-05-22","Episode":"6","imdbRating":"8.1","imdbID":"tt1837862"},{"Title":"You Win or You Die","Released":"2011-05-29","Episode":"7","imdbRating":"8.2","imdbID":"tt1837863"},{"Title":"The Pointy End","Released":"2011-06-05","Episode":"8","imdbRating":"7.9","imdbID":"tt1837864"},{"Title":"Baelor","Released":"2011-06-12","Episode":"9","imdbRating":"8.6","imdbID":"tt1851398"},{"Title":"Fire and Blood","Released":"2011-06-19","Episode":"10","imdbRating":"8.4","imdbID":"tt1851397"}],"Response":"True"},{"Title":"Game of Thrones","Season":"2","Episodes":[{"Title":"Winter Is Coming","Released":"2011-04-17","Episode":"1","imdbRating":"8.5","imdbID":"tt1480055"},{"Title":"The Kingsroad","Released":"2011-04-24","Episode":"2","imdbRating":"8.8","imdbID":"tt1668746"},{"Title":"Lord Snow","Released":"2011-05-01","Episode":"3","imdbRating":"8.6","imdbID":"tt1829962"},{"Title":"Cripples, Bastards, and Broken Things","Released":"2011-05-08","Episode":"4","imdbRating":"8.7","imdbID":"tt1829963"},{"Title":"The Wolf and the Lion","Released":"2011-05-15","Episode":"5","imdbRating":"9.0","imdbID":"tt1829964"},{"Title":"A Golden Crown","Released":"2011-05-22","Episode":"6","imdbRating":"9.1","imdbID":"tt1837862"},{"Title":"You Win or You Die","Released":"2011-05-29","Episode":"7","imdbRating":"9.2","imdbID":"tt1837863"},{"Title":"The Pointy End","Released":"2011-06-05","Episode":"8","imdbRating":"8.9","imdbID":"tt1837864"},{"Title":"Baelor","Released":"2011-06-12","Episode":"9","imdbRating":"8.6","imdbID":"tt1851398"},{"Title":"Fire and Blood","Released":"2011-06-19","Episode":"10","imdbRating":"9.4","imdbID":"tt1851397"}],"Response":"True"}];
 var episodedataset = [];
 var ratingdataset = [];
 var infoset = [];
 var title = [];
 
-app.directive('graph', function($parse, $window){
-   return{
-      restrict:'EA',
-      template:'<section class="graph"><div id="graph"></div></section>',
-       link: function(scope, elem, attrs){
-            scope.$watchCollection('results', function(newVal, oldVal){
-                console.log('directive:', newVal);
-                data_url = newVal || {};
-                drawGraph();
-           });
-        }
-       };
-     });
-
-
-var drawGraph = function() {
-
-if (title[0] && data_url['Title'] !== title[0]){
-    epId = 1;
-    episodedataset = [];
-    ratingdataset = [];
-    infoset = [];
-    title = [];
-}
-
-    console.log('drawGraph');
 //This iterates over the data_url to input the Episode Rating Data as points into the graph.
 var each = function(input, callback){
   if(input.constructor === Object){
@@ -52,15 +25,20 @@ var each = function(input, callback){
     }
   }
 };
+
 each(data_url, function(element, key){
-  if(key === "Title"){
-    title.push(data_url[key]);
-  }
+  each(element, function(item, key){
+    if(key === "Title"){
+        title.push(element[key]);
+      }
+  });
 });
 //Function for filling up the info dataset
-each(data_url, function(element, key){
+
+each(data_url, function(item, index){
+    each(item, function(element, key){
   if(key === "Episodes"){
-    var episodes = data_url["Episodes"];
+    var episodes = item["Episodes"];
     each(episodes, function(element, key){
     var set = episodes[key];
     var temp = [];
@@ -79,34 +57,66 @@ each(data_url, function(element, key){
   });  
   }
 });
-
-//Function for filling up the episode dataset
-each(data_url, function(element, key){
-  if(key === "Episodes"){
-    var episodes = data_url["Episodes"];
-   each(episodes, function(element, key){
-    var set = episodes[key];
-    var temp = [];
-    each(set,function(element, key){
-      if(temp.length === 2){
-        episodedataset.push(temp);
-      }
-      if(key === "Episode"){
-        var a = parseInt(set[key]);
-        //temp.push(a);
-        temp.push(epId);
-        epId++;
-      }
-      if(key === "imdbRating"){
-        var b = parseFloat(set[key]);
-        temp.push(b);
-        ratingdataset.push(b);
-      }
-    });
-  });  
-  }
 });
 
+var epCount = 1;
+//Function for filling up the episode dataset
+each(data_url, function(item, index){
+    each(item, function(element, key){
+    if(key === "Episodes"){
+      var episodes = item["Episodes"];
+     each(episodes, function(element, key){
+      var set = episodes[key];
+      var temp = [];
+      each(set,function(element, key){
+        if(temp.length === 2){
+          episodedataset.push(temp);
+        }
+        if(key === "Episode"){
+          var a = epCount;
+          epCount++;
+          temp.push(a);
+        }
+        if(key === "imdbRating"){
+          var b = parseFloat(set[key]);
+          temp.push(b);
+          ratingdataset.push(b);
+        }
+      });
+    });  
+    }
+  });
+});
+
+var x1 = 0;
+var y1 = 0;
+var x2 = 0;
+var y2 = 0;
+var len = episodedataset.length;
+each(episodedataset, function(item, index){
+  x1 += item[0];
+});
+each(episodedataset, function(item, index){
+  y1 += item[1];
+});
+each(episodedataset, function(item, index){
+  x2 += (item[0] * item[1]);
+});
+each(episodedataset, function(item, index){
+  y2 += (item[0] * item[0]);
+});
+var slope = (((len*x2) - (x1*y1))/((len*y2)-(x1*x1)))
+var intercept = ((y1 -(slope*x1))/len)
+
+var xLabels = episodedataset.map(function (d) { return d[0]; });
+var xSeries = d3.range(1, xLabels.length + 1);
+var ySeries = episodedataset.map(function(d) { return d[1]; });
+var a1 = xLabels[0];
+var b1 = slope + intercept;
+var a2 = xLabels[xLabels.length - 1];
+var b2 = slope * xSeries.length + intercept;
+var trendData = [[a1,b1,a2,b2]];
+console.log(slope);
 //This reveals data when you mouse over nodes.
 var tip = d3.tip()
   .attr('class', 'd3-tip')
@@ -116,10 +126,6 @@ var tip = d3.tip()
   })
 
 //Define Graph Space, Initialize d3 (This sets how big the div is)
-d3.selectAll('svg')
-        .remove();
-$('#graph').empty();
-
 var svg = d3.select('#graph')
         .append('svg')
         .attr('width', w)
@@ -227,9 +233,6 @@ points.attr('cy', 0)
                 }
         })
         .style('opacity', 1);
-
-
-//graph title
 d3.select('#graph svg')
   .append("text")
   .attr("x", w/2)             
@@ -238,14 +241,123 @@ d3.select('#graph svg')
   .style("fill", "#2FFF4D")
   .text(title[0]);
 
-//Text Style and Location On Hover
 
+function trendLine(){
+  var trendLine = svg.select()
+  var trendline = svg.selectAll(".trendline")
+      .data(trendData);
+      
+    trendline.enter()
+      .append("line")
+      .attr("class", "trendline")
+      .attr("x1", function(d) { return xScale(d[0]); })
+      .attr("y1", function(d) { return yScale(d[1]); })
+      .attr("x2", function(d) { return xScale(d[2]); })
+      .attr("y2", function(d) { return yScale(d[3]); })
+      .style("stroke", "rgb(47,255,77)")  
+}
+ 
 
 svg.selectAll('circle').data(infoset).on('mouseover', tip.show).on('mouseout', tip.hide)
-
+function shouldI (){
+  var avg = y1 / len;
+  if (avg >= 7){
+    if(slope > .05){
+    d3.select('#graph svg')
+    .append("text")
+    .attr("x", w/2)             
+    .attr("y", 350)
+    .attr("text-anchor", "middle") 
+    .style("fill", "#2FFF4D")
+    .attr("font-size", "34px")
+    .text("YES!");
+    }
+    else if(slope < 0 && slope > -0.03){
+    d3.select('#graph svg')
+    .append("text")
+    .attr("x", w/2)             
+    .attr("y", 350)
+    .attr("text-anchor", "middle") 
+    .style("fill", "#2FFF4D")
+    .attr("font-size", "34px")
+    .text("Sure");
+    }
+    else if(slope < 0 && slope > -0.04){
+    d3.select('#graph svg')
+    .append("text")
+    .attr("x", w/2)             
+    .attr("y", 350)
+    .attr("text-anchor", "middle") 
+    .style("fill", "#2FFF4D")
+    .attr("font-size", "34px")
+    .text("Meh.");
+    }
+    else {
+    d3.select('#graph svg')
+    .append("text")
+    .attr("x", w/2)             
+    .attr("y", 350)
+    .attr("text-anchor", "middle") 
+    .style("fill", "#2FFF4D")
+    .attr("font-size", "34px")
+    .text("Eeeeh...");
+    }
+  }
+  else {
+    if(slope > .05){
+    d3.select('#graph svg')
+    .append("text")
+    .attr("x", w/2)             
+    .attr("y", 350)
+    .attr("text-anchor", "middle") 
+    .style("fill", "#2FFF4D")
+    .attr("font-size", "34px")
+    .text("Go For It!");
+    }
+  else if(slope > 0.03){
+    d3.select('#graph svg')
+    .append("text")
+    .attr("x", w/2)             
+    .attr("y", 350)
+    .attr("text-anchor", "middle") 
+    .style("fill", "#2FFF4D")
+    .attr("font-size", "34px")
+    .text("Yup");
+    }
+  else if(slope > 0){
+    d3.select('#graph svg')
+    .append("text")
+    .attr("x", w/2)             
+    .attr("y", 350)
+    .attr("text-anchor", "middle") 
+    .style("fill", "#2FFF4D")
+    .attr("font-size", "34px")
+    .text("Eeeeh...");
+    }
+  else if(slope < 0 && slope > -0.04){
+    d3.select('#graph svg')
+    .append("text")
+    .attr("x", w/2)             
+    .attr("y", 350)
+    .attr("text-anchor", "middle") 
+    .style("fill", "#2FFF4D")
+    .attr("font-size", "34px")
+    .text("No.");
+    }
+  else {
+    d3.select('#graph svg')
+    .append("text")
+    .attr("x", w/2)             
+    .attr("y", 350)
+    .attr("text-anchor", "middle") 
+    .style("fill", "#2FFF4D")
+    .attr("font-size", "34px")
+    .text("HAHAHA...Oh You were Serious...");
+    }
+  }
 };
 
-
-
-
+var interval = (len * 100) + 1400 
+setTimeout(trendLine, interval);
+setTimeout(shouldI, interval+1000);
 
