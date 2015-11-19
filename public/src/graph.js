@@ -13,14 +13,13 @@ var episodedataset = [];
 var ratingdataset = [];
 var infoset = [];
 var showName = '';
-
+var seasonAvg = [];
 app.directive('graph', function($parse, $window) {
   return {
     restrict: 'EA',
     template: '<section class="graph"><div id="graph"></div></section>',
     link: function(scope, elem, attrs) {
       scope.$watchCollection('results', function(newVal, oldVal) {
-        //console.log('directive:', newVal);
         data_url = newVal || {};
         drawGraph();
       });
@@ -61,26 +60,28 @@ var drawGraph = function() {
   var episodes = data_url["Episodes"] || {};
   each(episodes, function(episode, key) {
     if (episode["imdbRating"] !== "N/A") {
-
       //get episode data
       var epNum = parseInt(episode["Episode"]);
       var rating = parseFloat(episode["imdbRating"]);
       var showTitle = episode["Title"];
-
+      var season = parseInt(data_url["Season"]);
       //fill the d3 dataset variables
       episodedataset.push([epId, rating]);
       ratingdataset.push(rating);
-      infoset.push([showTitle, rating]);
+      infoset.push([showTitle, rating, season, epNum]);
+      seasonAvg.push([season, rating]);
       epId++;
     }
   });
+
+var seasonScore = [];
 
   //This reveals data when you mouse over nodes.
   var tip = d3.tip()
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
-      return "<strong>Title:</strong> <span style='color:#2FFF4D'>" + d[0] + "</span>" + "<br>" + "<strong>Rating:</strong> <span style='color:#2FFF4D'>" + d[1] + "</span>";
+      return "<strong>Title:</strong> <span style='color:#2FFF4D'>" + d[0] + "</span>" + "<br>" + "<strong>Rating:</strong> <span style='color:#2FFF4D'>" + d[1] + "</span>" + "<br>" + "<strong>Season:</strong> <span style='color:#2FFF4D'>" + d[2] + "</span>" + "<br>" + "<strong>Episode:</strong> <span style='color:#2FFF4D'>" + d[3] + "</span>";
     });
 
   //Define Graph Space, Initialize d3 (This sets how big the div is)
@@ -208,10 +209,8 @@ var drawGraph = function() {
     .style("fill", "#2FFF4D")
     .text(showName);
 
-    svg.selectAll('circle').data(infoset).on('mouseover', tip.show).on('mouseout', tip.hide);
-
-
-  //TODO: fix trendline
+svg.selectAll('circle').data(infoset).on('mouseover', tip.show).on('mouseout', tip.hide);
+  
   var trendLine = function() {
     var x1 = 0;
     var y1 = 0;
@@ -270,11 +269,8 @@ var drawGraph = function() {
       .attr("y2", function(d) {
         return yScale(d[3]);
       })
-      .style("stroke", "rgb(47,255,77)")
-
-    
+      .style("stroke", "rgb(47,255,77)")   
     //ShouldI function
-
     var avg = y1 / len;
     if (avg >= 7) {
       if (slope > .05) {
@@ -285,8 +281,17 @@ var drawGraph = function() {
           .attr("text-anchor", "middle")
           .style("fill", "#2FFF4D")
           .attr("font-size", "34px")
-          .text("YES!");
-      } else if (slope < 0 && slope > -0.03) {
+          .text("You're Missing Out!");
+      } else if(slope > 0){
+        d3.select('#graph svg')
+          .append("text")
+          .attr("x", w/2)             
+          .attr("y", 350)
+          .attr("text-anchor", "middle") 
+          .style("fill", "#2FFF4D")
+          .attr("font-size", "34px")
+          .text("Yes!");
+        }else if (slope < 0 && slope > -0.03) {
         d3.select('#graph svg')
           .append("text")
           .attr("x", w / 2)
@@ -360,17 +365,11 @@ var drawGraph = function() {
           .style("fill", "#2FFF4D")
           .attr("font-size", "34px")
           .text("HAHAHA...Oh You were Serious...");
-      }
+      }        
     }
   };
-
   //d3.select('#graph svg').text('');
   if (data_url["Title"] !== undefined){
-    trendLine();
-    
+    trendLine(); 
   }
-  
-   //var interval = (len * 100) + 1400;
-   //setTimeout(trendLine, interval);
-   //setTimeout(shouldI, interval+1000);
 };
