@@ -10,7 +10,7 @@ body {
 div {
   marin: 20px auto 0;
   colo: #aaa;
- font-weight: 100;
+  font-weight: 100;
 }
 svg {
   postion: absolute;
@@ -76,3 +76,19 @@ svg {
   left: 0;
 }
 
+#searchBar {
+  width: 70%;
+}
+
+#submitButton {
+  width: 25%;
+}
+
+#graphContainer {
+  margin: 80px auto;
+}
+
+#mainHeader {
+  color: white;
+  margin-bottom: 50px;
+}

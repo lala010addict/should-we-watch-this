@@ -4,31 +4,42 @@
     <title>Samurai</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
     integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
-    crossorigin="anonymous"> 
+    crossorigin="anonymous">
      <link rel="stylesheet" type="text/css" href="public/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="public/src/app.js"></script>
     <!-- // <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
   </head>
   <body>
-    <!-- d3 graph section -->
-    
-  <div class="container" ng-app="app" ng-controller="appCtrl">
-    <graph></graph>
-    <!-- search results info -->
-    <section class="showInfo"></section>
-    <pre>{{ results }}</pre>
-    <!-- verdict -->
-    <section class="verdict"></section>
+    <div class="container" ng-app="app" ng-controller="appCtrl">
+      <div class="row">
+        <header id="mainHeader">
+          <h1 class="text-center">Should I Watch This?</h1>
 
-    <!-- search bar -->
-    <form class="search" ng-submit="submit()">
-      <input type="text" name="name" ng-model="query" placeholder="Should I watch this?">
-      <input type="submit" name="name" value="Go">
-    </form>
-  </div>
+        </header>
+        <!-- d3 graph section -->
+        <div id="graphContainer" class="col-md-12">
+          <graph></graph>
+        </div>
+
+        <!-- search results info -->
+        <section class="showInfo"></section>
+
+        <!-- verdict -->
+        <section class="verdict"></section>
+
+        <!-- search bar -->
+        <form class="search form-inline form-horizontal" ng-submit="submit()">
+          <div class="row">
+            <input id="searchBar" class="form-control input-lg" type="text" name="name" ng-model="query" placeholder="Should I watch this?">
+            <input id="submitButton" class="form-control input-lg" type="submit" name="name" value="Go">
+          </div>
+        </form>
+
+      </div>
+
+    </div>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <script src="public/src/graph.js"></script>
