@@ -3,7 +3,7 @@
 
 //Need Width, Height, Padding, Based on Object
 //(Would like to use percentages for dynamic sizing based on browser)
-var w = 800;
+var w = 1100;
 var h = 400;
 var padding = 25;
 //We don't know where this will be yet, needs to change.
