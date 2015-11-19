@@ -13,14 +13,13 @@ var episodedataset = [];
 var ratingdataset = [];
 var infoset = [];
 var showName = '';
-
+var seasonAvg = [];
 app.directive('graph', function($parse, $window) {
   return {
     restrict: 'EA',
     template: '<section class="graph"><div id="graph"></div></section>',
     link: function(scope, elem, attrs) {
       scope.$watchCollection('results', function(newVal, oldVal) {
-        //console.log('directive:', newVal);
         data_url = newVal || {};
         drawGraph();
       });
@@ -61,22 +60,21 @@ var drawGraph = function() {
   var episodes = data_url["Episodes"] || {};
   each(episodes, function(episode, key) {
     if (episode["imdbRating"] !== "N/A") {
-
       //get episode data
       var epNum = parseInt(episode["Episode"]);
       var rating = parseFloat(episode["imdbRating"]);
       var showTitle = episode["Title"];
       var season = parseInt(data_url["Season"]);
-
       //fill the d3 dataset variables
       episodedataset.push([epId, rating]);
       ratingdataset.push(rating);
       infoset.push([showTitle, rating, season, epNum]);
+      seasonAvg.push([season, rating]);
       epId++;
     }
   });
 
-
+var seasonScore = [];
 
   //This reveals data when you mouse over nodes.
   var tip = d3.tip()
@@ -211,11 +209,7 @@ var drawGraph = function() {
     .style("fill", "#2FFF4D")
     .text(showName);
 
-    svg.selectAll('circle').data(infoset).on('mouseover', tip.show).on('mouseout', tip.hide);
-
-  svg.selectAll('circle').data(infoset).on('mouseover', tip.show).on('mouseout', tip.hide);
-
-
+svg.selectAll('circle').data(infoset).on('mouseover', tip.show).on('mouseout', tip.hide);
   
   var trendLine = function() {
     var x1 = 0;
