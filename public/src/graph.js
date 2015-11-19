@@ -285,8 +285,18 @@ var drawGraph = function() {
           .attr("text-anchor", "middle")
           .style("fill", "#2FFF4D")
           .attr("font-size", "34px")
-          .text("YES!");
-      } else if (slope < 0 && slope > -0.03) {
+          .text("You're Missing Out!");
+      } else if(slope > 0){
+        d3.select('#graph svg')
+          .append("text")
+          .attr("x", w/2)             
+          .attr("y", 350)
+          .attr("text-anchor", "middle") 
+          .style("fill", "#2FFF4D")
+          .attr("font-size", "34px")
+          .text("Yes!");
+        }
+      else if (slope < 0 && slope > -0.03) {
         d3.select('#graph svg')
           .append("text")
           .attr("x", w / 2)
