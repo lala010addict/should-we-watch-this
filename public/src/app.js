@@ -1,4 +1,4 @@
-// instantiate an angular app
+// instantiate an angular
 var app = angular.module('app', []);
   // declare one controller for the app
 app.controller('appCtrl', function($scope, $http) {
@@ -15,16 +15,16 @@ app.controller('appCtrl', function($scope, $http) {
     var season = 1;
     var seasonExists = true;
     var queryString = $scope.query;
-    $scope.query = '';
+    $scope.query = ''; 
     var getAllSeasons = function(seasonNumber) {
     	$http({
     		//need to handle url spaces
     		method: 'GET',
         params: {t: queryString, type: 'series', season: seasonNumber},
-    		url: 'http://www.omdbapi.com/?',
+    		url: 'api/shows/show',
     	}).then(function(res) {
-        console.log(res);
-        if (res.data.Response === "True") {
+        console.log(res.data, 'this is the response');
+        if (res.data.Response === 'True') {
           $scope.results = res.data;
           getAllSeasons(seasonNumber + 1);
         }
