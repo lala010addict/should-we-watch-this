@@ -11,7 +11,7 @@ var routes = function(User) {
     .post(userController.signup);
 
   userRouter.route('/signedin')
-    .post(userController.checkAuth);
+    .get(userController.checkAuth);
 
   return userRouter;
 };
