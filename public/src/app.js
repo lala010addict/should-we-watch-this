@@ -1,4 +1,4 @@
-// instantiate an angular app
+// instantiate an angular
 var app = angular.module('app', []);
   // declare one controller for the app
 app.controller('appCtrl', function($scope, $http) {
