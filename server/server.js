@@ -6,10 +6,12 @@ var express = require('express'),
 // mongoDB config:
 var db;
 
-if (process.env.ENV === "dev") {
-  mongoose.connect('mongodb://localhost/howzey_dev');
+//mongodb://<dbuser>:<dbpassword>@ds051960.mongolab.com:51960/heroku_nq58mlzb
+
+if (process.env.MONGOLAB_URI) {
+  mongoose.connect(process.env.MONGOLAB_URI);
 } else {
-  mongoose.connect('mongodb://localhost/howzey_deploy');
+  mongoose.connect('mongodb://localhost/shows');
 }
 db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error...'));
