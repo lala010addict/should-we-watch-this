@@ -7,7 +7,7 @@ app.controller('appCtrl', function($scope, $http) {
   // * show meta data as an object (reponse from AJAX call?)
   $scope.results = [];
   // * d3 object / data set (when data is changed page is update)
-
+  $scope.briansPie = [];
   // * search function
   $scope.submit = function() {
     // - make call to AJAX factory
@@ -26,11 +26,13 @@ app.controller('appCtrl', function($scope, $http) {
         console.log(res.data, 'this is the response');
         if (res.data.Response === 'True') {
           $scope.results = res.data;
+          $scope.briansPie.push(res.data);
           getAllSeasons(seasonNumber + 1);
+        } else {
+          console.log('this is brians pie', $scope.briansPie);
         }
     		//run d3 function with data
     	}, function(err) {
-
         console.log(err);
       });
     };

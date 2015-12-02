@@ -20,6 +20,7 @@ db.once('open', function(){
   startServer();
 });
 
+
 var app = express();
 require('./middleware.js')(app, express);
 
