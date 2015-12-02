@@ -2,44 +2,60 @@
 <html>
 
 <head>
-  <title>Asian Ninjas the best kind of Ninjas</title>
+  <title>Samurai</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="public/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  <script src="src/app.js"></script>
-  <link rel="stylesheet" href="slide-in-panel/css/reset.css">
+  <script src="public/src/app.js"></script>
+  <link rel="stylesheet" href="public/slide-in-panel/css/reset.css">
   <!-- CSS reset -->
-  <link rel="stylesheet" href="slide-in-panel/css/style.css">
+  <link rel="stylesheet" href="public/slide-in-panel/css/style.css">
   <!-- Resource style -->
-  <script src="slide-in-panel/js/modernizr.js"></script>
+  <script src="public/slide-in-panel/js/modernizr.js"></script>
   <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <!-- Modernizr -->
   <!-- autocompelete -->
   <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css" rel="stylesheet" />
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-  <script src="src/search.js"></script>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/cupertino/jquery-ui.min.css" type="text/css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="public/src/search.js"></script>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/cupertino/jquery-ui.min.css" type="text/css">
   <!-- autocompelete -->
   <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-  <script src="src/graph.js"></script>
-  <!-- Nav -->
-  <link rel="stylesheet" type="text/css" href="AnimatedBorderMenus/css/style1.css" />
-  <!-- Nav -->
+  <script src="public/src/graph.js"></script>
+ <!-- Nav -->
+<!--  <link rel="stylesheet" type="text/css" href="public/AnimatedBorderMenus/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="public/AnimatedBorderMenus/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="public/AnimatedBorderMenus/css/icons.css" /> -->
+    <link rel="stylesheet" type="text/css" href="public/AnimatedBorderMenus/css/style1.css" />
+<!--     // <script src="public/AnimatedBorderMenus/js/modernizr.custom.js"></script> -->
+
+ <!-- Nav -->
+
+   
 </head>
 
 <body>
-  <nav id="bt-menu" class="bt-menu">
-    <a href="#" class="bt-menu-trigger">Menu</a>
-    <ul>
-      <li><a href="#" class="glyphicon glyphicon-user">Sign Up</a></li>
-      <li><a href="#" class="glyphicon glyphicon-log-in">Sign In</a></li>
 
-    </ul>
-  </nav>
+
+
+
+<nav id="bt-menu" class="bt-menu">
+        <a href="#" class="bt-menu-trigger">Menu</a>
+        <ul>
+        <li><a href="#" class="glyphicon glyphicon-user">Sign Up</a></li>
+          <li><a href="#" class="glyphicon glyphicon-log-in">Sign In</a></li>
+    <!--       <li><a href="#" class="bt-icon icon-folder-add">Profile</a></li>
+          <li><a href="#" class="bt-icon icon-download">Calendar</a></li>
+          <li><a href="#" class="bt-icon icon-window-delete">Download</a></li> -->
+        </ul>
+      </nav>
+
+
+
   <div class="container" ng-app="app" ng-controller="appCtrl">
     <form id="form" name="form" method="get" class="search form-inline form-horizontal" ng-submit="submit()">
       <div class="col-lg-6 col-lg-offset-3 text-center">
@@ -47,7 +63,10 @@
         <button id="submit" type="submit" class="btn btn-primary"><i class="fa fa-bar-chart-o"></i></button>
       </div>
     </form>
-    <div class="row">
+
+
+
+  <div class="row">
       <!-- d3 graph section -->
       <div id="graphContainer" class="col-md-12" style="margin: 20px;">
         <graph></graph>
@@ -57,6 +76,13 @@
       <!-- verdict -->
       <section class="verdict"></section>
     </div>
+
+ 
+
+  
+  
+
+    
     <!-- slide in button -->
     <main class="cd-main-content">
       <a href="#0" class="cd-btn">Analysis/Info</a>
@@ -76,11 +102,18 @@
     </div>
     <!-- cd-panel -->
   </div>
-  <!-- Nav -->
-  <script src="AnimatedBorderMenus/js/classie.js"></script>
-   <script src="AnimatedBorderMenus/js/borderMenu.js"></script>
-  <!-- panel -->
-  <script src="slide-in-panel/js/main.js"></script>
+
+ 
+ <!-- Nav -->
+    <script src="public/AnimatedBorderMenus/js/classie.js"></script>
+  <script src="public/AnimatedBorderMenus/js/borderMenu.js"></script>
+
+ <!-- panel -->
+
+  <script src="public/slide-in-panel/js/main.js"></script>
+  <!--   // <script src="public/slide-in-panel/js/jquery-2.1.1.js"></script>
+   <script src="public/slide-in-panel/js/main.js"></script>
+  // <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
 </body>
 
 </html>

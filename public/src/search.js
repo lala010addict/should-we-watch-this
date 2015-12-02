@@ -1,7 +1,7 @@
 
 var key = 'api_key=2c8a02fa36fb5299dcd97bbc84609899';
 var ImgPath = "http://image.tmdb.org/t/p/";
-//var urls = ["", "/cgi-bin/LWP.pl?url=http://en.wikipedia.org", ""];
+var urls = ["", "/cgi-bin/LWP.pl?url=http://en.wikipedia.org", ""];
 var RTkey = "pfwh96pvezces4nybpv7qf8f";
 
 $(function() {
