@@ -12,6 +12,15 @@ body {
     margin-top: 30px;
 }
 
+#signin{
+margin: 120px;
+}
+
+#signup{
+margin: 120px;
+}
+
+
 div {
     marin: 20px auto 0;
     colo: #aaa;
