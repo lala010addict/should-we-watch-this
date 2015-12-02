@@ -1,6 +1,6 @@
 // instantiate an angular app
 var app = angular.module('app', []);
-  // declare one controller for the app
+// declare one controller for the app
 app.controller('appCtrl', function($scope, $http) {
   // * scope will have the query string as a variable
   $scope.query = '';
@@ -17,19 +17,29 @@ app.controller('appCtrl', function($scope, $http) {
     var queryString = $scope.query;
     $scope.query = '';
     var getAllSeasons = function(seasonNumber) {
-    	$http({
-    		//need to handle url spaces
-    		method: 'GET',
-        params: {t: queryString, type: 'series', season: seasonNumber},
-    		url: 'http://www.omdbapi.com/?',
-    	}).then(function(res) {
+      $http({
+        //need to handle url spaces
+        method: 'GET',
+        params: {
+          t: queryString,
+          type: 'series',
+          season: seasonNumber
+        },
+        url: 'http://www.omdbapi.com/?',
+      }).then(function(res) {
         console.log(res);
-        if (res.data.Response === "True") {
+
+        if (res.data.Response === "False") {
+          alert(res.data.Error)
+
+        }else if
+        (res.data.Response === "True") 
+        {
           $scope.results = res.data;
           getAllSeasons(seasonNumber + 1);
         }
-    		//run d3 function with data
-    	}, function(err) {
+        //run d3 function with data
+      }, function(err) {
 
         console.log(err);
       });
@@ -38,4 +48,3 @@ app.controller('appCtrl', function($scope, $http) {
     getAllSeasons(season);
   };
 });
-

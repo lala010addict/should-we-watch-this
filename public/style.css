@@ -1,22 +1,28 @@
 body {
-  background-color: #111;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    background-color: #111;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
+
+.col-lg-6 {
+    margin-top: 30px;
+}
+
 div {
-  marin: 20px auto 0;
-  colo: #aaa;
-  font-weight: 100;
+    marin: 20px auto 0;
+    colo: #aaa;
+    font-weight: 100;
 }
+
 svg {
-  postion: absolute;
-  top: 0%;
-  left: 0%;
-  tran  transform: translate(-50%,-50%);
+    postion: absolute;
+    top: 0%;
+    left: 0%;
+    tran transform: translate(-50%, -50%);
 }
 
 .xaxis path,
@@ -45,50 +51,54 @@ svg {
 .lineChart {
     fill: none;
     stroke-width: 3;
-    stroke: rgba(100,100,100, 0.4);
+    stroke: rgba(100, 100, 100, 0.4);
 }
 
 .d3-tip {
-  line-height: 1;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
+    line-height: 1;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
 }
+
 
 /* Creates a small triangle extender for the tooltip */
+
 .d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
 }
 
+
 /* Style northward tooltips differently */
+
 .d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
 }
 
 #searchBar {
-  width: 70%;
+    width: 70%;
 }
 
 #submitButton {
-  width: 25%;
+    width: 25%;
 }
 
 #graphContainer {
-  margin: 80px auto;
+    margin: 80px auto;
 }
 
 #mainHeader {
-  color: white;
-  margin-bottom: 50px;
+    color: white;
+    margin-bottom: 50px;
 }

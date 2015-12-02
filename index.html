@@ -1,45 +1,93 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Samurai</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-    integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
-    crossorigin="anonymous">
-     <link rel="stylesheet" type="text/css" href="public/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="public/src/app.js"></script>
-  </head>
-  <body>
-    <div class="container" ng-app="app" ng-controller="appCtrl">
-      <div class="row">
-        <header id="mainHeader">
-          <h1 class="text-center">Should I Watch This?</h1>
-        </header>
-        <!-- d3 graph section -->
-        <div id="graphContainer" class="col-md-12">
-          <graph></graph>
-        </div>
 
-        <!-- search results info -->
-        <section class="showInfo"></section>
+<head>
+  <title>Samurai</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="public/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="public/src/app.js"></script>
+  <link rel="stylesheet" href="public/slide-in-panel/css/reset.css">
+  <!-- CSS reset -->
+  <link rel="stylesheet" href="public/slide-in-panel/css/style.css">
+  <!-- Resource style -->
+  <script src="public/slide-in-panel/js/modernizr.js"></script>
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Modernizr -->
+  <!-- autocompelete -->
+  <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css" rel="stylesheet" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="public/src/search.js"></script>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/cupertino/jquery-ui.min.css" type="text/css">
+  <!-- autocompelete -->
+</head>
 
-        <!-- verdict -->
-        <section class="verdict"></section>
-
-        <!-- search bar -->
-        <form class="search form-inline form-horizontal" ng-submit="submit()">
-          <div class="row">
-            <input id="searchBar" class="form-control input-lg" type="text" name="name" ng-model="query" placeholder="Should I watch this?">
-            <input id="submitButton" class="form-control input-lg" type="submit" name="name" value="Go">
-          </div>
-        </form>
-
-      </div>
-
+<body>
+ <form id="form" name="form" method="get" action="http://www.imdb.com/find" class="search form-inline form-horizontal" ng-submit="submit()">
+    <div class="col-lg-6 col-lg-offset-3 text-center">
+      <input type="text" id="Films" id="searchBar" class="form-control input" type="text" name="name" ng-model="query" placeholder="Should I watch this?" />
+      <button id="submit" type="submit" class="btn btn-primary"><i class="fa fa-bar-chart-o"></i></button>
     </div>
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-    <script src="public/src/graph.js"></script>
-  </body>
+  </form>
+  <div class="container" ng-app="app" ng-controller="appCtrl">
+
+   <form id="form" name="form" method="get" action="http://www.imdb.com/find" class="search form-inline form-horizontal" ng-submit="submit()">
+    <div class="col-lg-6 col-lg-offset-3 text-center">
+      <input type="text" id="Films" id="searchBar" class="form-control input" type="text" name="name" ng-model="query" placeholder="Should I watch this?" />
+      <button id="submit" type="submit" class="btn btn-primary"><i class="fa fa-bar-chart-o"></i></button>
+    </div>
+  </form>
+
+  
+    <!-- search bar -->
+    <!--   <form class="search form-inline form-horizontal" ng-submit="submit()" id="form" name="form" method="get" action="http://www.imdb.com/find">
+      <div class="col-lg-6 col-lg-offset-3 text-center">
+        <input id="searchBar" class="form-control input" type="text" name="name" ng-model="query" placeholder="Should I watch this?">
+        <button id="submit" type="submit" class="btn btn-primary"><i class="fa fa-bar-chart-o"></i></button>
+      </div>
+    </form> -->
+    <div class="row">
+      <!--   <header id="mainHeader">
+        <h1 class="text-center">Should I Watch This?</h1>
+      </header> -->
+      <!-- d3 graph section -->
+      <div id="graphContainer" class="col-md-12" style="margin: 20px;">
+        <graph></graph>
+      </div>
+      <!-- search results info -->
+      <section class="showInfo"></section>
+      <!-- verdict -->
+      <section class="verdict"></section>
+    </div>
+    <!-- slide in button -->
+    <main class="cd-main-content">
+      <a href="#0" class="cd-btn">Analysis/Info</a>
+    </main>
+    <div class="cd-panel from-right">
+      <header class="cd-panel-header">
+        <h1>Info</h1>
+        <a href="#0" class="cd-panel-close">Close</a>
+      </header>
+      <div class="cd-panel-container">
+        <div class="cd-panel-content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam magnam accusamus obcaecati nisi eveniet quo veniam quibusdam veritatis autem accusantium doloribus nam mollitia maxime explicabo nemo quae aspernatur impedit cupiditate dicta molestias consectetur, sint reprehenderit maiores. Tempora, exercitationem, voluptate. Sapiente modi officiis nulla sed ullam, amet placeat, illum necessitatibus, eveniet dolorum et maiores earum tempora, quas iste perspiciatis quibusdam vero accusamus veritatis. Recusandae sunt, repellat incidunt impedit tempore iusto, nostrum eaque necessitatibus sint eos omnis! Beatae, itaque, in. Vel reiciendis consequatur saepe soluta itaque aliquam praesentium, neque tempora. Voluptatibus sit, totam rerum quo ex nemo pariatur tempora voluptatem est repudiandae iusto, architecto perferendis sequi, asperiores dolores doloremque odit. Libero, ipsum fuga repellat quae numquam cumque nobis ipsa voluptates pariatur, a rerum aspernatur aliquid maxime magnam vero dolorum omnis neque fugit laboriosam eveniet veniam explicabo, similique reprehenderit at. Iusto totam vitae blanditiis. Culpa, earum modi rerum velit voluptatum voluptatibus debitis, architecto aperiam vero tempora ratione sint ullam voluptas non! Odit sequi ipsa, voluptatem ratione illo ullam quaerat qui, vel dolorum eligendi similique inventore quisquam perferendis reprehenderit quos officia! Maxime aliquam, soluta reiciendis beatae quisquam. Alias porro facilis obcaecati et id, corporis accusamus? Ab porro fuga consequatur quisquam illo quae quas tenetur.</p>
+        </div>
+        <!-- cd-panel-content -->
+      </div>
+      <!-- cd-panel-container -->
+    </div>
+    <!-- cd-panel -->
+  </div>
+
+  <script src="public/slide-in-panel/js/jquery-2.1.1.js"></script>
+  <script src="public/slide-in-panel/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <script src="public/src/graph.js"></script>
+</body>
+
 </html>
