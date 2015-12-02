@@ -2,11 +2,11 @@
 
 > An app that anyone can use instantly, to chart IMDB user ratings for their favorite shows, by episode.
 
-## Team - Samurai
+## Team - Asian Ninjas
 
-  - __Product Owner__: Aaron Phillips
-  - __Scrum Master__: Ryan Price (Tom Cruise)
-  - __Development Team Members__: Casey Woolley, Eric Hollenberry
+  - __Product Owner__: Omar Sial (Leonardo Dicaprio)
+  - __Scrum Master__: Brian Nguyen (Tom Cruise)
+  - __Development Team Members__: Michael Lee (Brad Pitt), JieYing Peng (Angelina Jolie)
 
 ## Table of Contents
 
