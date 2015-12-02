@@ -9,11 +9,11 @@ body {
 }
 
 .col-lg-6 {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
-#container{
-     margin: 50px;
+.row{
+    margin-left: 60px;
 }
 #signin{
 margin: 120px;

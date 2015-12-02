@@ -1,7 +1,7 @@
 // instantiate an angular
 var app = angular.module('app.main', []);
   // declare one controller for the app
-app.controller('appCtrl', function($scope, $http, $routeProvider, $httpProvider) {
+app.controller('appCtrl', function($scope, $http) {
   // * scope will have the query string as a variable
   $scope.query = '';
   // * show meta data as an object (reponse from AJAX call?)

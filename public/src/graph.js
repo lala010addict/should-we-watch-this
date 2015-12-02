@@ -14,7 +14,9 @@ var ratingdataset = [];
 var infoset = [];
 var showName = '';
 var seasonAvg = [];
-app.directive('graph', function($parse, $window) {
+
+angular.module('app.directive', [])
+.directive('graph', function($parse, $window) {
   return {
     restrict: 'EA',
     template: '<section class="graph"><div id="graph"></div></section>',

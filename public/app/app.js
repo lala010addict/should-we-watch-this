@@ -4,7 +4,8 @@ angular.module('app', [
   'app.links',
   'app.shorten',
   'app.auth',
-  'ngRoute'
+  'ngRoute',
+  'app.directive'
 ])
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
