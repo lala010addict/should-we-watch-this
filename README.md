@@ -2,7 +2,7 @@
 
 > An app that anyone can use instantly, to chart IMDB user ratings for their favorite shows, by episode.
 
-## Team - Samurai
+## Team - Asian Ninjas
 
   - __Product Owner__: Omar Sial (Leonardo Dicaprio)
   - __Scrum Master__: Brian Nguyen (Tom Cruise)
