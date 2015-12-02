@@ -2,6 +2,9 @@
   "name": "should-i-watch-this",
   "version": "1.0.0",
   "description": "> An app that anyone can use instantly, to chart IMDB user ratings for their favorite shows, by episode.",
+  "engines": {
+    "node": "4.2.1"
+  },
   "main": "server/server.js",
   "scripts": {
     "test": "test"
