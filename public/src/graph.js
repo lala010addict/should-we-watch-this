@@ -14,7 +14,9 @@ var ratingdataset = [];
 var infoset = [];
 var showName = '';
 var seasonAvg = [];
-app.directive('graph', function($parse, $window) {
+
+angular.module('app.directive', [])
+.directive('graph', function($parse, $window) {
   return {
     restrict: 'EA',
     template: '<section class="graph"><div id="graph"></div></section>',
@@ -146,12 +148,6 @@ var seasonScore = [];
     .attr("dy", ".71em")
     .style("text-anchor", "end")
     .text("IMDB Rating");
-   
-
-
-    // .append('a')
-    // .attr("xlink:href", "#0");
-
 
   //Draw Graph (Lines and Points)
   /*define line*/

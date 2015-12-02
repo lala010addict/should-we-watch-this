@@ -1,12 +1,11 @@
 <!doctype html>
-<html>
+<html ng-app="app">
 
 <head>
   <title>Asian Ninjas the best kind of Ninjas</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  <script src="src/app.js"></script>
   <link rel="stylesheet" href="slide-in-panel/css/reset.css">
   <!-- CSS reset -->
   <link rel="stylesheet" href="slide-in-panel/css/style.css">
@@ -24,7 +23,8 @@
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/cupertino/jquery-ui.min.css" type="text/css">
   <!-- autocompelete -->
   <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <script src="src/d3tip.js"></script>
+  <!-- <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script> -->
   <script src="src/graph.js"></script>
   <!-- Nav -->
   <link rel="stylesheet" type="text/css" href="AnimatedBorderMenus/css/style1.css" />
@@ -35,52 +35,26 @@
   <nav id="bt-menu" class="bt-menu">
     <a href="#" class="bt-menu-trigger">Menu</a>
     <ul>
-      <li><a href="#" class="glyphicon glyphicon-user">Sign Up</a></li>
-      <li><a href="#" class="glyphicon glyphicon-log-in">Sign In</a></li>
-
+      <li><a href="/#/" class="fa fa-home">Home</a></li>
+      <li><a href="/#/signup" class="glyphicon glyphicon-user">Sign Up</a></li>
+      <li><a href="/#/signin" class="glyphicon glyphicon-log-in">Sign In</a></li>
     </ul>
   </nav>
-  <div class="container" ng-app="app" ng-controller="appCtrl">
-    <form id="form" name="form" method="get" class="search form-inline form-horizontal" ng-submit="submit()">
-      <div class="col-lg-6 col-lg-offset-3 text-center">
-        <input type="text" id="Films" id="searchBar" class="form-control input" type="text" name="name" ng-model="query" placeholder="Should I watch this?" style="width: 400px" />
-        <button id="submit" type="submit" class="btn btn-primary"><i class="fa fa-bar-chart-o"></i></button>
-      </div>
-    </form>
-    <div class="row">
-      <!-- d3 graph section -->
-      <div id="graphContainer" class="col-md-12" style="margin: 20px;">
-        <graph></graph>
-      </div>
-      <!-- search results info -->
-      <section class="showInfo"></section>
-      <!-- verdict -->
-      <section class="verdict"></section>
-    </div>
-    <!-- slide in button -->
-    <main class="cd-main-content">
-      <a href="#0" class="cd-btn">Analysis/Info</a>
-    </main>
-    <div class="cd-panel from-right">
-      <header class="cd-panel-header">
-        <h1>Info</h1>
-        <a href="#0" class="cd-panel-close">Close</a>
-      </header>
-      <div class="cd-panel-container">
-        <div class="cd-panel-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam magnam accusamus obcaecati nisi eveniet quo veniam quibusdam veritatis autem accusantium doloribus nam mollitia maxime explicabo nemo quae aspernatur impedit cupiditate dicta molestias consectetur, sint reprehenderit maiores. Tempora, exercitationem, voluptate. Sapiente modi officiis nulla sed ullam, amet placeat, illum necessitatibus, eveniet dolorum et maiores earum tempora, quas iste perspiciatis quibusdam vero accusamus veritatis. Recusandae sunt, repellat incidunt impedit tempore iusto, nostrum eaque necessitatibus sint eos omnis! Beatae, itaque, in. Vel reiciendis consequatur saepe soluta itaque aliquam praesentium, neque tempora. Voluptatibus sit, totam rerum quo ex nemo pariatur tempora voluptatem est repudiandae iusto, architecto perferendis sequi, asperiores dolores doloremque odit. Libero, ipsum fuga repellat quae numquam cumque nobis ipsa voluptates pariatur, a rerum aspernatur aliquid maxime magnam vero dolorum omnis neque fugit laboriosam eveniet veniam explicabo, similique reprehenderit at. Iusto totam vitae blanditiis. Culpa, earum modi rerum velit voluptatum voluptatibus debitis, architecto aperiam vero tempora ratione sint ullam voluptas non! Odit sequi ipsa, voluptatem ratione illo ullam quaerat qui, vel dolorum eligendi similique inventore quisquam perferendis reprehenderit quos officia! Maxime aliquam, soluta reiciendis beatae quisquam. Alias porro facilis obcaecati et id, corporis accusamus? Ab porro fuga consequatur quisquam illo quae quas tenetur.</p>
-        </div>
-        <!-- cd-panel-content -->
-      </div>
-      <!-- cd-panel-container -->
-    </div>
-    <!-- cd-panel -->
-  </div>
+  <div ng-view></div>
+ 
   <!-- Nav -->
   <script src="AnimatedBorderMenus/js/classie.js"></script>
-   <script src="AnimatedBorderMenus/js/borderMenu.js"></script>
+  <script src="AnimatedBorderMenus/js/borderMenu.js"></script>
   <!-- panel -->
   <script src="slide-in-panel/js/main.js"></script>
+  <!-- auth -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
+  <script src="app/main/main.js"></script>
+  <script src="app/auth/auth.js"></script>
+  <script src="app/links/links.js"></script>
+  <script src="app/shorten/shorten.js"></script>
+  <script src="app/services/services.js"></script>
+  <script src="app/app.js"></script>
 </body>
 
 </html>

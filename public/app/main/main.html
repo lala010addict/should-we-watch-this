@@ -1,0 +1,37 @@
+<!--  <div ng-view></div> -->
+<div id="container">
+  <form id="form" name="form" method="get" class="search form-inline form-horizontal" ng-submit="submit()">
+    <div class="col-lg-6 col-lg-offset-3 text-center">
+      <input type="text" id="Films" id="searchBar" class="form-control input" type="text" name="name" ng-model="query" placeholder="Should I watch this?" style="width: 400px" />
+      <button id="submit" type="submit" class="btn btn-primary"><i class="fa fa-bar-chart-o"></i></button>
+    </div>
+  </form>
+  <div class="row">
+    <!-- d3 graph section -->
+    <div id="graphContainer" class="col-md-12" style="margin: 20px;">
+      <graph></graph>
+    </div>
+    <!-- search results info -->
+    <section class="showInfo"></section>
+    <!-- verdict -->
+    <section class="verdict"></section>
+  </div>
+  <!-- slide in button -->
+  <main class="cd-main-content">
+    <a href="#0" class="cd-btn">Analysis/Info</a>
+  </main>
+  <div class="cd-panel from-right">
+    <header class="cd-panel-header">
+      <h1>Info</h1>
+      <a href="#0" class="cd-panel-close">Close</a>
+    </header>
+    <div class="cd-panel-container">
+      <div class="cd-panel-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam magnam accusamus obcaecati nisi eveniet quo veniam quibusdam veritatis autem accusantium doloribus nam mollitia maxime explicabo nemo quae aspernatur impedit cupiditate dicta molestias consectetur, sint reprehenderit maiores. Tempora, exercitationem, voluptate. Sapiente modi officiis nulla sed ullam, amet placeat, illum necessitatibus, eveniet dolorum et maiores earum tempora, quas iste perspiciatis quibusdam vero accusamus veritatis. Recusandae sunt, repellat incidunt impedit tempore iusto, nostrum eaque necessitatibus sint eos omnis! Beatae, itaque, in. Vel reiciendis consequatur saepe soluta itaque aliquam praesentium, neque tempora. Voluptatibus sit, totam rerum quo ex nemo pariatur tempora voluptatem est repudiandae iusto, architecto perferendis sequi, asperiores dolores doloremque odit. Libero, ipsum fuga repellat quae numquam cumque nobis ipsa voluptates pariatur, a rerum aspernatur aliquid maxime magnam vero dolorum omnis neque fugit laboriosam eveniet veniam explicabo, similique reprehenderit at. Iusto totam vitae blanditiis. Culpa, earum modi rerum velit voluptatum voluptatibus debitis, architecto aperiam vero tempora ratione sint ullam voluptas non! Odit sequi ipsa, voluptatem ratione illo ullam quaerat qui, vel dolorum eligendi similique inventore quisquam perferendis reprehenderit quos officia! Maxime aliquam, soluta reiciendis beatae quisquam. Alias porro facilis obcaecati et id, corporis accusamus? Ab porro fuga consequatur quisquam illo quae quas tenetur.</p>
+      </div>
+      <!-- cd-panel-content -->
+    </div>
+    <!-- cd-panel-container -->
+  </div>
+  <!-- cd-panel -->
+</div>
