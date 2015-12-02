@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "> An app that anyone can use instantly, to chart IMDB user ratings for their favorite shows, by episode.",
   "engines": {
-    "node": "4.2.1"
+    "node": "4.2.1",
+    "npm": "2.14.7"
   },
   "main": "server/server.js",
   "scripts": {
@@ -23,7 +24,7 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "firebase": "^2.3.2",
+    "firebase": "^2.3.2", 
     "gulp": "^3.9.0",
     "gulp-env": "^0.2.0",
     "jwt-simple": "^0.3.1",
