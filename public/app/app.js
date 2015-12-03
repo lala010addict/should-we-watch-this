@@ -6,6 +6,7 @@ angular.module('app', [
   'app.auth',
   'ngRoute',
   'app.directive'
+// , 'app.autocomplete'
 ])
 .config(function($routeProvider, $httpProvider) {
   $routeProvider

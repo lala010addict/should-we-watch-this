@@ -2,12 +2,12 @@
 <div id="container">
   <form id="form" name="form" method="get" class="search form-inline form-horizontal" ng-submit="submit()">
     <div class="col-lg-6 col-lg-offset-3 text-center">
-      <input type="text" id="Films" id="searchBar" class="form-control input" type="text" name="name" ng-model="query" placeholder="Should I watch this?" style="width: 400px" />
-      <button id="submit" type="submit" class="btn btn-primary"><i class="fa fa-bar-chart-o"></i></button>
+      <input type="text" autocomplete ng-model="query" id="Films" id="searchBar"  class="form-control input" type="text" name="name"  placeholder="Should I watch this?" style="width: 400px" />
+      <button id="submit" type="submit"  ng-disabled="isDisabled" class="btn btn-primary"><i class="fa fa-bar-chart-o"></i></button>
     </div>
   </form>
   <div class="row">
-    <!-- d3 graph section -->
+    <!-- d3 graph section   id="Films" id="searchBar"  class="form-control input" type="text" name="name" -->
     <div id="graphContainer" class="col-md-12" style="margin: 20px;">
       <graph></graph>
     </div>

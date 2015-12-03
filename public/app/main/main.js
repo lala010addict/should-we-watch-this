@@ -4,6 +4,20 @@ var app = angular.module('app.main', []);
 app.controller('appCtrl', function($scope, $http) {
   // * scope will have the query string as a variable
   $scope.query = '';
+   $scope.queryId = null;
+
+// #############
+// #autocomplete
+// #############
+
+
+  //   $scope.isDisabled = true;
+    //  $scope.validateModel = function () {
+    //     $scope.isDisabled = ($scope.queryId === null);
+    // };
+    // $scope.$watch('queryId', function() {
+    //     $scope.validateModel();
+    // });
   // * show meta data as an object (reponse from AJAX call?)
   $scope.results = [];
   // * d3 object / data set (when data is changed page is update)
