@@ -18,8 +18,6 @@ angular.module('app.autocomplete', [])
           // console.log(request.term)
           $http({
             method: "JSONP",
-
-
             url: "https://api.themoviedb.org/3/search/tv?api_key=2c8a02fa36fb5299dcd97bbc84609899&query=" + request.term + '&callback=JSON_CALLBACK'
 
           }).success(function(data) {
@@ -36,9 +34,10 @@ angular.module('app.autocomplete', [])
         },
         select: function(event, ui) {
           scope.query = ui.item.name;
+          console.log(scope.query)
           scope.submit(ui.item.name)
             //  console.log( ui.item.name)
-            //   scope.$apply;
+            //  scope.$apply;
           return false;
         },
         change: function(event, ui) {
