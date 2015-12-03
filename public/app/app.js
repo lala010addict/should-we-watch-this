@@ -6,10 +6,14 @@ angular.module('app', [
   'app.auth',
   'ngRoute',
   'app.directive'
-// , 'app.autocomplete'
+ ,'app.autocomplete'
 ])
 .config(function($routeProvider, $httpProvider) {
+
+
   $routeProvider
+  
+
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
@@ -18,7 +22,6 @@ angular.module('app', [
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
-    // Your code here
 
     .when('/', {
       templateUrl: 'app/main/main.html',

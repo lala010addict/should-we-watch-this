@@ -21,10 +21,11 @@
   },
   "homepage": "https://github.com/mlee0330/Should-I-Watch-This#readme",
   "dependencies": {
+    "angucomplete-alt": "^2.1.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "firebase": "^2.3.2", 
+    "firebase": "^2.3.2",
     "gulp": "^3.9.0",
     "gulp-env": "^0.2.0",
     "jwt-simple": "^0.3.1",
