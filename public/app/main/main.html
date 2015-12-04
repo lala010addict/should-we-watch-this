@@ -1,8 +1,10 @@
 <div id="container">
   <form id="form" name="form" method="get" class="search form-inline form-horizontal" ng-submit="submit()">
     <div class="col-lg-6 col-lg-offset-3 text-center">
- <a class= "glyphicon glyphicon-plus"  title="Add to Watchlist" ng-click="click(query)"></a>  
+ <a class= "glyphicon glyphicon-plus"  title="Add to Watchlist" ng-click="getPoster(query)"></a>  
+ 
 
+<!--  <a  title="Add to Watchlist" ng-click="getPoster(query)">click</a>   -->
 
 <!-- scope.watchlist.push($scope.query); console.log($scope.watchlist) -->
       <input type="text" id="Films" id="searchBar" class="form-control input" type="text" name="name" autocomplete ng-model="query" placeholder="Should I watch this?" style="width: 400px" />
@@ -25,26 +27,19 @@
     <section class="verdict"></section>
   </div>
 
-  <div class="row" >
+<!--   <div class="row">
 {{watchlist.join("  ");}}
 
-  </div>
-
-
-
-    <!-- slide in button -->
- <div class="cd-panel from-right">
-    <header class="cd-panel-header">
-      <h1>Info</h1>
-      <a href="" class="cd-panel-close">Close</a>
-    </header>
-    <div class="cd-panel-container">
-      <div class="cd-panel-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam magnam accusamus obcaecati nisi eveniet quo veniam quibusdam veritatis autem accusantium doloribus nam mollitia maxime explicabo nemo quae aspernatur impedit cupiditate dicta molestias consectetur, sint reprehenderit maiores. Tempora, exercitationem, voluptate. Sapiente modi officiis nulla sed ullam, amet placeat, illum necessitatibus, eveniet dolorum et maiores earum tempora, quas iste perspiciatis quibusdam vero accusamus veritatis. Recusandae sunt, repellat incidunt impedit tempore iusto, nostrum eaque necessitatibus sint eos omnis! Beatae, itaque, in. Vel reiciendis consequatur saepe soluta itaque aliquam praesentium, neque tempora. Voluptatibus sit, totam rerum quo ex nemo pariatur tempora voluptatem est repudiandae iusto, architecto perferendis sequi, asperiores dolores doloremque odit. Libero, ipsum fuga repellat quae numquam cumque nobis ipsa voluptates pariatur, a rerum aspernatur aliquid maxime magnam vero dolorum omnis neque fugit laboriosam eveniet veniam explicabo, similique reprehenderit at. Iusto totam vitae blanditiis. Culpa, earum modi rerum velit voluptatum voluptatibus debitis, architecto aperiam vero tempora ratione sint ullam voluptas non! Odit sequi ipsa, voluptatem ratione illo ullam quaerat qui, vel dolorum eligendi similique inventore quisquam perferendis reprehenderit quos officia! Maxime aliquam, soluta reiciendis beatae quisquam. Alias porro facilis obcaecati et id, corporis accusamus? Ab porro fuga consequatur quisquam illo quae quas tenetur.</p>
-      </div>
-      <!-- cd-panel-content -->
+  </div> -->
+  <div class="container-fluid">
+  <div class="row" > 
+  <div class="col-xs-3" ng-repeat="x in watchlist">
+<img src="{{x.link}}">
     </div>
-    <!-- cd-panel-container -->
-  </div>
+    </div>
+    </div>
+
+
+
   <!-- cd-panel -->
 </div>
