@@ -1,0 +1,18 @@
+.thumbnail {
+    padding-left: 30px;
+    background-color: rgba(226, 229, 243, 0.88);
+    border: 1px solid #B6839E;
+}
+
+.col-md-10 {
+    color: #B6839E;
+    font-size: 14px;
+       font-weight: 140;
+    margin-bottom: 40px;
+}
+
+.modal-content{
+	margin: 80px;
+	background-color: rgba(0, 0, 0, 0.78);
+	color: white;
+}

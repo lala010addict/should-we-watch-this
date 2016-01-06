@@ -1,0 +1,43 @@
+<navbar></navbar>
+<div class="container">
+  <div class="col-md-10 col-md-offset-4">
+    <h1>My Show List</h1></div>
+
+  <div class="row">
+  </br>
+  <div ng-show='any()' class="col-md-10 col-md-offset-3">You haven't added any shows to your watchlist yet. </div>
+    <div ng-repeat="show in shows">
+      <div class="col-sm-6 col-md-4 col-centered ">
+        <div class="thumbnail">
+          <div ng-click="open(show)"> <img height=400px src="{{show.Poster}}" alt="..."></div>
+          <div class="caption">
+            <div ng-click="open(show)">{{ show.Title }}</div>
+            <p><a ng-click="open(show)" class="btn btn-primary" role="button">Details</a> <a ng-click="deleteshow(show._id)" class="btn btn-default" role="button">Delete</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--MODAL WINDOW-->
+<script type="text/ng-template" id="ModalInstance.html">
+  <div class="modal-header">
+    <h3> {{ show.Title }}</h3>
+  </div>
+  <div class="modal-body">
+    <div> {{ show.Plot}}</div>
+    <br>
+
+    <div><b>Awards: </b>{{ show.Awards}}</div>
+    <div> <b>Director: </b>{{ show.Director}}</div>
+    <div> <b>Country: </b>{{ show.Country}}</div>
+    <div> <b>Genre: </b>{{ show.Genre}}</div>
+       <div><b>Actors: </b>{{ show.Actors}}</div>
+    <div><b> Rated:</b> {{ show.Rated}}</div>
+    <div> <b>Runtime:</b> {{ show.Runtime}}</div>
+    <div><b> Year:</b> {{ show.Year}}</div>
+  <div> imdb Rating: </b>{{ show.imdbRating}}</div>
+
+  </div>
+</script>
+<footer></footer>

@@ -1,52 +1,31 @@
-# Project Name - Should I Watch This?
+# tvshow-app
 
-> An app that anyone can use instantly, to chart IMDB user ratings for their favorite shows, by episode.
+This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.0.2.
 
-## Team - Asian Ninjas
+## Getting Started
 
-  - __Product Owner__: Omar Sial (Leonardo Dicaprio)
-  - __Scrum Master__: Brian Nguyen (Tom Cruise)
-  - __Development Team Members__: Michael Lee (Brad Pitt), JieYing Peng (Angelina Jolie)
+### Prerequisites
 
-## Table of Contents
+- [Git](https://git-scm.com/)
+- [Node.js and npm](nodejs.org) Node ^4.2.3, npm ^2.14.7
+- [Bower](bower.io) (`npm install --global bower`)
+- [Grunt](http://gruntjs.com/) (`npm install --global grunt-cli`)
+- [MongoDB](https://www.mongodb.org/) - Keep a running daemon with `mongod`
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
-1. [Contributing](#contributing)
+### Developing
 
-## Usage
+1. Run `npm install` to install server dependencies.
 
-> Some usage instructions
+2. Run `bower install` to install front-end dependencies.
 
-## Requirements
+3. Run `mongod` in a separate shell to keep an instance of the MongoDB Daemon running
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+4. Run `grunt serve` to start the development server. It should automatically open the client in your browser when ready.
 
-## Development
+## Build & development
 
-### Installing Dependencies
+Run `grunt build` for building and `grunt serve` for preview.
 
-From within the root directory:
+## Testing
 
-```sh
-sudo npm install -g bower
-npm install
-bower install
-```
-
-### Roadmap
-
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
-
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+Running `npm test` will run the unit tests with karma.

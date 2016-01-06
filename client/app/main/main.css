@@ -1,0 +1,211 @@
+.button {
+    border: 0px solid;
+    /*background: rgba(232, 211, 224, 0.62);*/
+    background-color: rgba(44, 65, 167, 0.14);
+    overflow: hidden;
+    width: 100%;
+    outline: none;
+    /*color: #B37A9E;*/
+    color: #B6839E;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.navbar-default {
+    background-color: rgba(44, 65, 167, 0.14);
+    border-color: #B6839E;
+}
+
+#pie {
+    padding-top: 40px;
+    padding-left: 240px;
+}
+
+#graph {
+    padding-top: 40px;
+}
+
+#episodeInfo {
+    color: rgba(88, 84, 142, 0.61);
+    font-size: 15px;
+    margin-top: 20px;
+    margin-right: 90px;
+    margin-left: 100px;
+}
+
+.button span {
+/*    font-weight: 700;
+    font-size: 1.5em;
+    font-style: Arial;*/
+    display: block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.col-md-8{
+    padding-top: 50px;
+}
+.thing-form {
+    margin: 20px 0;
+}
+
+#banner {
+    border-bottom: none;
+    margin-top: -20px;
+}
+
+#banner h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.hero-unit {
+    position: relative;
+    padding: 30px 15px;
+    color: #F5F5F5;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    background: #4393B9;
+}
+
+.navbar-text {
+    margin-left: 15px;
+}
+
+.col-center {
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.searchres {
+    background-color: white;
+    width: 25%;
+    cursor: pointer;
+}
+
+body {
+    color: black;
+    background-color: white;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.col-lg-6 {
+    margin-top: 40px;
+}
+
+.row {
+    margin-left: 60px;
+}
+
+#signin {
+    margin: 120px;
+}
+
+#signup {
+    margin: 120px;
+}
+
+div {
+    marin: 20px auto 0;
+    colo: #aaa;
+    font-weight: 140;
+}
+
+svg {
+    postion: absolute;
+    top: 0%;
+    left: 0%;
+    tran transform: translate(-50%, -50%);
+}
+
+.xaxis path,
+.xaxis line,
+.yaxis path,
+.yaxis line {
+    stroke: #aaa;
+    fill: none;
+    shape-rendering: crispEdges;
+}
+
+.xaxis text,
+.yaxis text {
+    font-family: sans-serif;
+    font-size: 11px;
+    fill: #aaa;
+}
+
+.datapoint {
+    cursor: pointer;
+    stroke: #111;
+    fill: rgba(47, 255, 77, .75);
+    stroke-width: 7;
+}
+
+.lineChart {
+    fill: none;
+    stroke-width: 3;
+    stroke: rgba(100, 100, 100, 0.4);
+}
+
+.d3-tip {
+    line-height: 1;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+}
+
+
+/* Creates a small triangle extender for the tooltip */
+
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+
+/* Style northward tooltips differently */
+
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+#searchBar {
+    width: 70%;
+}
+
+#submitButton {
+    width: 25%;
+}
+
+#graphContainer {
+    margin: 60px auto;
+}
+
+#mainHeader {
+    color: white;
+    margin-bottom: 50px;
+}
+
+
+/* tabs */
