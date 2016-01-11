@@ -22,10 +22,13 @@ A television show analysis application that provides users with graphic ratings 
 
 4. Run `grunt serve` to start the development server. It should automatically open the client in your browser when ready.
 
-## Build & development
+## Website
 
-Run `grunt build` for building and `grunt serve` for preview.
+![Should We Watch This](/screenshots/swwt2.png?raw=true "Should We Watch This")
 
+![Should We Watch This](/screenshots/swwt3.png?raw=true "Should We Watch This")
+
+![Should We Watch This](/screenshots/swwt.png?raw=true "Should We Watch This")
 ## Testing
 
 Running `npm test` will run the unit tests with karma.
