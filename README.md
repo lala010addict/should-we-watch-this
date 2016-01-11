@@ -1,6 +1,6 @@
-# tvshow-app
+# Should We Watch This 
 
-This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.0.2.
+A television show analysis application that provides users with graphic ratings and trends to help users make a viewing decision.
 
 ## Getting Started
 
